@@ -1,22 +1,63 @@
-const inp = document.getElementsByClassName("cmd")[0];
-const out = document.getElementsByClassName("output")[0];
-out.innerHTML = "";
+const inp = document.getElementsByClassName('cmd')[0]
+const out = document.getElementsByClassName('output')[0]
+out.innerHTML = ''
 
-var data;
+var data
+var lines
 
-inp.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    console.log("yes"+inp.value);
-    //out.innerHTML += inp.value + '\n';
-    out.innerHTML = data;
-    
-    inp.value = "";
+function o(i) {
+  out.innerHTML += i
+}
+ 
+function read() {
+  if (lines == null) {
+    lines = data.split(/\r?\n/g)
+  }
+
+  for (i = 0; i < lines.length - 1; i++) {
+    var line = lines[i].split(':')
+    o((i + 1) + '.\t' + line[0] + '\t: ' + line[1] + '\n')
+  }
+}
+
+var inputCmd
+
+function cmdfail() {
+  o('invalid command: ' + inp.value + '\n')
+  console.log(inputCmd.length, inputCmd)
+}
+
+inp.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+
+    console.log('cmd:'+inp.value)
+
+    inputCmd = inp.value.split(' ')
+
+    if (inputCmd.length == 1) {
+      if (inputCmd[0] == 'r') {
+        read()
+      } else {
+        cmdfail()
+      }
+    } else if (inputCmd.length > 1) {
+      if (inputCmd[0] == 's') {
+      o('wow')
+      } else {
+        cmdfail()
+      }
+    } else {
+      cmdfail()
+    }
+
+    inp.value = '';
+    out.scrollIntoView({ behavior: 'smooth', block: 'end', align: 'false'})
   }
 })
 
 // i don't like this approach, will change some day
 data =
-  `-amus:-ism
+`-amus:-ism
 -ba:In the act
 -liz:Our (Indirect)
 -mae:Them (Indirect)
