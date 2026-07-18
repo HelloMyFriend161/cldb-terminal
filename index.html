@@ -5,51 +5,115 @@
     <title>Habsieg's Lavnian Database</title>
     <style>
       body {
-        font-family: 'JetBrains Mono'; font-size: 12px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        font-family: Consolas, monospace;
+        font-size: 12px;
         background-color: #0f0f0f;
+        line-height: 5px;
       }
-      h1 {
+      h2 {
         color: #ffffff;
       }
       p {
         color: #ffffff;
       }
 
-      div.terminal {
+      .terminal {
         background-color: #1f1f1f;
         color: #ffffff;
         width: 500px;
         height: 600px;
         overflow-y: auto;
         padding: 5px 5px;
+        border: 3px solid #2f2f2f;
+        border-radius: 5px;
+        font-family: Consolas, monospace;
+      }
+
+      .input-form {
+        padding: 5px 0px
+      }
+
+      .not-important-info {
+        color: #666666
       }
 
       input {
         border: 0px;
         outline: none;
-        background-color: #1f1f1f;
+        background-color: #1f1f25;
         color: #ffffff;
         width: 464px;
         padding: 5px 5px;
+        border: 3px solid #2f2f45;
+        border-radius: 5px;
+        font-family: Consolas, monospace;
       }
 
-      label.input_label {
+      input:hover {
+        background-color: #303045
+      }
+      input:enter {
+
+      }
+
+      label.input-label {
         background-color: #0f0f0f;
         color: #ffffff;
+      }
+      
+      pre {
+        line-height: 12px;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #252525;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #303030;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ffffff;
       }
     </style>
   </head>
   <body>
-    
-    <h1>Hi there</h1>
-    <p>did i scare you</p>
-    <p>test</p>
+    <h2 class="not-important-info">Lavnian Language Database Terminal</h2>
+    <p class="not-important-info">est. since May 6th 2025</p>
     <div class="terminal">
-      broski
+      <pre class="output" name="output">
+      </pre>
     </div>
-    <label class="input_label">
+    <div class="input-form">
+      <label class="input-label">
       [] >
-    </label><input>
-    
+    </label>
+    <input class="cmd" name="cmd" spellcheck="false">
+    </div>
+    <p class="not-important-info">Contact habsieg for help or in the case of bugs.</p>
+
+    <script>
+
+      const inp = document.getElementsByClassName("cmd")[0];
+      const out = document.getElementsByClassName("output")[0];
+      out.innerHTML = ""
+
+      inp.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          console.log("yes"+inp.value)
+          out.innerHTML += inp.value + '\n';
+          
+          inp.value = "";
+        }
+      })
+
+    </script>
+
   </body>
 </html>
