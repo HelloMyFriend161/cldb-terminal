@@ -937,4 +937,4 @@ Zurukalko:Nightmare
 Zurumae:Bedroom
 Zut:Will
 Zutal:Bed
-`;
+`
