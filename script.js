@@ -6,7 +6,7 @@ var data
 var lines
 
 function o(i) {
-  out.innerHTML += i
+  out.innerHTML += i + '\n'
 }
  
 function read() {
@@ -15,15 +15,49 @@ function read() {
   }
 
   for (i = 0; i < lines.length - 1; i++) {
+  
     var line = lines[i].split(':')
-    o((i + 1) + '.\t' + line[0] + '\t: ' + line[1] + '\n')
+    o((i + 1) + '.\t' + line[0] + '\t: ' + line[1])
+  
   }
+}
+
+function search() {
+  if (lines == null) {
+    lines = data.split(/\r?\n/g)
+  }
+  
+  var search = ''
+  for (i = 1; i < inputCmd.length; i++) {
+    search += inputCmd[i] + ' '
+  }
+  search = search.trim()
+  o("Searching for '" + search + "'")
+
+  var found = false
+  var total = 0
+
+  for (i = 0; i < lines.length - 1; i++) {
+    if (lines[i].toLowerCase().includes(search.toLowerCase())) {
+      var line = lines[i].split(':')
+
+      o("found match at line " + (i + 1) + ": " + line[0] + " : " + line[1])
+      found = true
+      total += 1
+    
+    }
+  }
+  if (found == false) {
+    o("no matches found.")
+  }
+
+  o(total + " entries found")
 }
 
 var inputCmd
 
 function cmdfail() {
-  o('invalid command: ' + inp.value + '\n')
+  o('invalid command: ' + inp.value)
   console.log(inputCmd.length, inputCmd)
 }
 
@@ -37,18 +71,21 @@ inp.addEventListener('keydown', function(event) {
     if (inputCmd.length == 1) {
       if (inputCmd[0] == 'r') {
         read()
+      } else if (inputCmd[0] == 'c') {
+        out.innerHTML = ''
       } else {
         cmdfail()
       }
     } else if (inputCmd.length > 1) {
       if (inputCmd[0] == 's') {
-      o('wow')
+        search()
       } else {
         cmdfail()
       }
     } else {
       cmdfail()
     }
+    o('')
 
     inp.value = '';
     out.scrollIntoView({ behavior: 'smooth', block: 'end', align: 'false'})
@@ -937,4 +974,4 @@ Zurukalko:Nightmare
 Zurumae:Bedroom
 Zut:Will
 Zutal:Bed
-`
+`;
