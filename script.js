@@ -51,7 +51,7 @@ function search() {
     o("no matches found.")
   }
 
-  o(total + " entries found")
+  o(total + " entry(s) found")
 }
 
 var inputCmd
