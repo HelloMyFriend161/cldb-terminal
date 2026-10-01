@@ -368,6 +368,7 @@ Kahzakae:Door
 Kahzakaelatalus:Door
 Kakamnal:Logistics
 Kakamzaboz:Package
+Kakome:Injury
 Kakti:Square/Box
 Kala:Pay
 Kalinina:Pure/Clean
@@ -561,6 +562,7 @@ Mutu:Make/Assemble
 Muvan:Handle (v)
 Na:No
 Naehir:Horse
+Naekome:Pain/Sick/Hurt (Mentally)
 Naem:Away from/Against
 Naemontovo:Cook (obj)
 Naet:Tilt
@@ -619,7 +621,7 @@ Nuaesa:Enough
 Nucu:Fail
 Nuni:As if/As
 Oi:Oh
-Oito:Pain
+Oito:Pain/Sick/Hurt (Physically)
 Okta:Brother
 Olum:Hollow
 Omnula:Manual/By-hand/man-made
@@ -662,6 +664,7 @@ Ruznaz:Region
 Ruzon:Rifle
 Saec:Pale
 Saehte:Cold
+Saer:Water
 Saerae:Sea/Ocean
 Saeraet:Wet
 Saeretiza:Water
@@ -712,6 +715,7 @@ Su:Fast
 Suka:Easy
 Sul:Onward/Charge
 Suvaelen:Run/Faster
+Ta:And
 Taebae:Give
 Taebaesa:Suggest
 Taebkov:Respect
@@ -722,6 +726,7 @@ Taehlaka:He
 Taemar:Support
 Taemaralam:Hold
 Taemaralamtal:Scaffolding
+Taen:Think
 Taenaemam:Forgive
 Taentae:Attention
 Taevaeme:Guidance
